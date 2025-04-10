@@ -3,4 +3,7 @@ services:
     name: gemini-chatbot
     env: python
     buildCommand: pip install -r requirements.txt
-    startCommand: python app.py
+    startCommand: gunicorn main:app
+    envVars:
+      - key: GEMINI_API_KEY
+        value: your-gemini-api-key-here
